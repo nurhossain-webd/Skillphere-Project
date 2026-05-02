@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "title": "Complete Web Development Bootcamp",
+        "instructor": "John Doe",
+        "duration": "20 hours",
+        "rating": 4.9,
+        "level": "Beginner",
+        "description": "Learn HTML, CSS, JavaScript, React, and backend fundamentals to build modern full-stack web applications from scratch.",
+        "image": "https://i.postimg.cc/76mJvBmF/web-development.jpg",
+        "category": "Development"
+    },
+    {
+        "id": 2,
+        "title": "UI/UX Design Masterclass",
+        "instructor": "Sarah Mitchell",
+        "duration": "14 hours",
+        "rating": 4.7,
+        "level": "Beginner",
+        "description": "Master user interface and user experience design principles, wireframing, prototyping, color theory, and modern design workflows.",
+        "image": "https://i.postimg.cc/TYcB2dBz/ui-ux-design.jpg",
+        "category": "Design"
+    },
+    {
+        "id": 3,
+        "title": "Digital Marketing Strategy",
+        "instructor": "Michael Brown",
+        "duration": "12 hours",
+        "rating": 4.6,
+        "level": "Intermediate",
+        "description": "Learn SEO, social media marketing, content strategy, email marketing, and analytics to grow brands and online businesses.",
+        "image": "https://i.postimg.cc/D0FZR8JX/digital-marketing.jpg",
+        "category": "Marketing"
+    },
+    {
+        "id": 4,
+        "title": "Python for Data Science",
+        "instructor": "Emily Carter",
+        "duration": "18 hours",
+        "rating": 4.8,
+        "level": "Intermediate",
+        "description": "Explore Python, NumPy, Pandas, Matplotlib, data cleaning, data visualization, and basic machine learning concepts.",
+        "image": "https://i.postimg.cc/vZrN8R6Z/python-data-science.jpg",
+        "category": "Data Science"
+    },
+    {
+        "id": 5,
+        "title": "Graphic Design with Canva",
+        "instructor": "David Wilson",
+        "duration": "8 hours",
+        "rating": 4.5,
+        "level": "Beginner",
+        "description": "Create professional social media posts, posters, banners, presentations, and brand visuals using Canva tools and templates.",
+        "image": "https://i.postimg.cc/nzvWJ7wW/graphic-design.jpg",
+        "category": "Design"
+    },
+    {
+        "id": 6,
+        "title": "Advanced React and Next.js",
+        "instructor": "Rachel Adams",
+        "duration": "22 hours",
+        "rating": 4.9,
+        "level": "Advanced",
+        "description": "Build production-ready applications using React, Next.js App Router, server components, dynamic routing, authentication, and deployment.",
+        "image": "https://i.postimg.cc/fTz68L7f/react-nextjs.jpg",
+        "category": "Development"
+    },
+    {
+        "id": 7,
+        "title": "Business Communication Skills",
+        "instructor": "Olivia Harris",
+        "duration": "10 hours",
+        "rating": 4.4,
+        "level": "Beginner",
+        "description": "Improve professional communication, presentation skills, email writing, meeting participation, and workplace confidence.",
+        "image": "https://i.postimg.cc/DydZpWqL/business-communication.jpg",
+        "category": "Business"
+    },
+    {
+        "id": 8,
+        "title": "Cybersecurity Fundamentals",
+        "instructor": "Daniel Lee",
+        "duration": "16 hours",
+        "rating": 4.7,
+        "level": "Intermediate",
+        "description": "Understand network security, common cyber threats, password safety, malware, phishing, firewalls, and basic protection techniques.",
+        "image": "https://i.postimg.cc/28wGQw9p/cybersecurity.jpg",
+        "category": "Security"
+    }
+]
