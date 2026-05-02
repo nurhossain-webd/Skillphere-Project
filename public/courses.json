@@ -7,7 +7,7 @@
         "rating": 4.9,
         "level": "Beginner",
         "description": "Learn HTML, CSS, JavaScript, React, and backend fundamentals to build modern full-stack web applications from scratch.",
-        "image": "https://i.postimg.cc/76mJvBmF/web-development.jpg",
+        "image": "https://images.unsplash.com/photo-1672309558498-cfcc89afff25?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "Development"
     },
     {
@@ -18,7 +18,7 @@
         "rating": 4.7,
         "level": "Beginner",
         "description": "Master user interface and user experience design principles, wireframing, prototyping, color theory, and modern design workflows.",
-        "image": "https://i.postimg.cc/TYcB2dBz/ui-ux-design.jpg",
+        "image": "https://images.unsplash.com/photo-1777503810475-54815aae2cb4?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "Design"
     },
     {
@@ -29,7 +29,7 @@
         "rating": 4.6,
         "level": "Intermediate",
         "description": "Learn SEO, social media marketing, content strategy, email marketing, and analytics to grow brands and online businesses.",
-        "image": "https://i.postimg.cc/D0FZR8JX/digital-marketing.jpg",
+        "image": "https://images.unsplash.com/photo-1696041756040-c910a971f222?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "Marketing"
     },
     {
@@ -40,7 +40,7 @@
         "rating": 4.8,
         "level": "Intermediate",
         "description": "Explore Python, NumPy, Pandas, Matplotlib, data cleaning, data visualization, and basic machine learning concepts.",
-        "image": "https://i.postimg.cc/vZrN8R6Z/python-data-science.jpg",
+        "image": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "Data Science"
     },
     {
@@ -51,7 +51,7 @@
         "rating": 4.5,
         "level": "Beginner",
         "description": "Create professional social media posts, posters, banners, presentations, and brand visuals using Canva tools and templates.",
-        "image": "https://i.postimg.cc/nzvWJ7wW/graphic-design.jpg",
+        "image": "https://images.unsplash.com/photo-1649091245823-18be815da4f7?q=80&w=1162&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "Design"
     },
     {
@@ -62,7 +62,7 @@
         "rating": 4.9,
         "level": "Advanced",
         "description": "Build production-ready applications using React, Next.js App Router, server components, dynamic routing, authentication, and deployment.",
-        "image": "https://i.postimg.cc/fTz68L7f/react-nextjs.jpg",
+        "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "Development"
     },
     {
@@ -73,7 +73,7 @@
         "rating": 4.4,
         "level": "Beginner",
         "description": "Improve professional communication, presentation skills, email writing, meeting participation, and workplace confidence.",
-        "image": "https://i.postimg.cc/DydZpWqL/business-communication.jpg",
+        "image": "https://images.unsplash.com/photo-1637589308599-3478cc55510d?q=80&w=1296&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "Business"
     },
     {
@@ -84,7 +84,7 @@
         "rating": 4.7,
         "level": "Intermediate",
         "description": "Understand network security, common cyber threats, password safety, malware, phishing, firewalls, and basic protection techniques.",
-        "image": "https://i.postimg.cc/28wGQw9p/cybersecurity.jpg",
+        "image": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "Security"
     }
 ]
