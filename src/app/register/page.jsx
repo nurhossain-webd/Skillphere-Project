@@ -1,21 +1,55 @@
-import Form from "next/form";
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 export default function RegisterPage() {
+    const router = useRouter();
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const image = formData.get("photo");
+        const password = formData.get("password");
+
+        const { data, error } = await authClient.signUp.email({
+            name,
+            email,
+            password,
+            image,
+        });
+
+        if (error) {
+            toast.error(error.message || "Registration failed");
+            return;
+        }
+
+        toast.success("Registration successful. Please login.");
+        router.push("/login");
+    };
+
     return (
         <section className="min-h-screen bg-orange-50 flex items-center justify-center px-5 py-16">
             <div className="w-full max-w-md rounded-3xl bg-white p-8 shadow-lg border border-orange-100">
                 <div className="text-center mb-8">
                     <p className="text-orange-500 font-semibold">Create Account</p>
+
                     <h1 className="text-3xl font-bold text-slate-900 mt-2">
                         Register to SkillSphere
                     </h1>
+
                     <p className="text-slate-500 mt-3 text-sm">
                         Join SkillSphere and start learning new skills today.
                     </p>
                 </div>
 
-                <Form action="/register" className="space-y-5">
+                <form onSubmit={onSubmit} className="space-y-5">
                     {/* Name */}
                     <div>
                         <label className="label">
@@ -23,6 +57,7 @@ export default function RegisterPage() {
                                 Name
                             </span>
                         </label>
+
                         <input
                             type="text"
                             name="name"
@@ -39,6 +74,7 @@ export default function RegisterPage() {
                                 Email
                             </span>
                         </label>
+
                         <input
                             type="email"
                             name="email"
@@ -55,12 +91,12 @@ export default function RegisterPage() {
                                 Photo URL
                             </span>
                         </label>
+
                         <input
                             type="url"
                             name="photo"
                             placeholder="Enter your photo URL"
                             className="input input-bordered w-full focus:outline-orange-400"
-                            required
                         />
                     </div>
 
@@ -71,6 +107,7 @@ export default function RegisterPage() {
                                 Password
                             </span>
                         </label>
+
                         <input
                             type="password"
                             name="password"
@@ -86,17 +123,28 @@ export default function RegisterPage() {
                     >
                         Register
                     </button>
-                </Form>
+                </form>
 
                 <div className="divider text-slate-400">OR</div>
 
-                <button className="btn w-full bg-white border border-slate-300 text-slate-700 hover:border-orange-400 hover:bg-orange-50">
+                <button
+                    onClick={() =>
+                        authClient.signIn.social({
+                            provider: "google",
+                            callbackURL: "/",
+                        })
+                    }
+                    className="btn w-full bg-white border border-slate-300 text-slate-700 hover:border-orange-400 hover:bg-orange-50"
+                >
                     Continue with Google
                 </button>
 
                 <p className="text-center text-sm text-slate-600 mt-6">
                     Already have an account?{" "}
-                    <Link href="/login" className="font-semibold text-orange-500 hover:underline">
+                    <Link
+                        href="/login"
+                        className="font-semibold text-orange-500 hover:underline"
+                    >
                         Login
                     </Link>
                 </p>

@@ -1,7 +1,45 @@
-import Form from "next/form";
+"use client";
+
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        const email = formData.get("email");
+        const password = formData.get("password");
+
+        const { data, error } = await authClient.signIn.email({
+            email,
+            password,
+        });
+
+        if (error) {
+            toast.error(error.message || "Login failed");
+            return;
+        }
+
+        toast.success("Login successful");
+
+        const redirectTo = searchParams.get("redirectTo") || "/";
+        router.push(redirectTo);
+    };
+
+    const handleGoogleLogin = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+            callbackURL: "/",
+        });
+    };
+
     return (
         <section className="min-h-screen bg-orange-50 flex items-center justify-center px-5 py-16">
             <div className="w-full max-w-md rounded-3xl bg-white p-8 shadow-lg border border-orange-100">
@@ -17,7 +55,7 @@ export default function LoginPage() {
                     </p>
                 </div>
 
-                <Form action="/login" className="space-y-5">
+                <form onSubmit={onSubmit} className="space-y-5">
                     {/* Email */}
                     <div>
                         <label className="label">
@@ -58,11 +96,14 @@ export default function LoginPage() {
                     >
                         Login
                     </button>
-                </Form>
+                </form>
 
                 <div className="divider text-slate-400">OR</div>
 
-                <button className="btn w-full bg-white border border-slate-300 text-slate-700 hover:border-orange-400 hover:bg-orange-50">
+                <button
+                    onClick={handleGoogleLogin}
+                    className="btn w-full bg-white border border-slate-300 text-slate-700 hover:border-orange-400 hover:bg-orange-50"
+                >
                     Continue with Google
                 </button>
 
