@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SkillSphere - Online Learning Platform
 
-## Getting Started
+## Purpose
 
-First, run the development server:
+SkillSphere is a modern online learning platform where users can explore skill-based courses, view course details, and manage their learning profile. The platform is designed for students who want to learn topics such as web development, UI/UX design, digital marketing, data science, business communication, and cybersecurity.
+## Project Screenshots
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Home and Courses Overview
+![Home and Courses Overview](public/readme/skillsphere-readme-showcase-1.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Authentication Flow
+![Authentication Flow](public/readme/skillsphere-readme-showcase-2.png)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Protected User Experience
+![Protected User Experience](public/readme/skillsphere-readme-showcase-3.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Live URL
 
-## Learn More
+https://skillphere-project.vercel.app
 
-To learn more about Next.js, take a look at the following resources:
+## Key Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Responsive navbar with active route highlighting
+- Home page with hero section and animated promo strip
+- Popular Courses section showing the top 3 highest-rated courses
+- Trending Courses section
+- Learning Tips section with study and time management tips
+- Top Instructors section
+- All Courses page with all course cards
+- Search functionality by course title
+- Protected Course Details page
+- Course curriculum section on details page
+- User registration with email and password
+- User login with email and password
+- Google social login
+- Logout functionality
+- My Profile page for logged-in users
+- Update profile information with name and image URL
+- Toast notifications for authentication actions
+- Loader while fetching data
+- Custom not-found page
+- Fully responsive design for mobile, tablet, and desktop
+- Clean Next.js App Router structure
+- No route crash on reload after deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+- Next.js
+- React
+- Tailwind CSS
+- DaisyUI
+- BetterAuth
+- MongoDB
+- Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## NPM Packages Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `better-auth`
+- `mongodb`
+- `react-icons`
+- `react-toastify`
+- `motion`
+- `daisyui`
+
+## Main Routes
+
+```txt
+/
+Home page
+
+/courses
+All courses page
+
+/courses/[id]
+Protected course details page
+
+/login
+Login page
+
+/register
+Register page
+
+/my-profile
+Protected profile page
+
+/my-profile/update
+Protected update profile page
