@@ -33,11 +33,19 @@ export default function LoginPage() {
         router.push(redirectTo);
     };
 
+
     const handleGoogleLogin = async () => {
-        await authClient.signIn.social({
+        const { data, error } = await authClient.signIn.social({
             provider: "google",
             callbackURL: "/",
         });
+
+        if (error) {
+            toast.error(error.message || "Google login failed");
+            return;
+        }
+
+        toast.success("Google login successful");
     };
 
     return (

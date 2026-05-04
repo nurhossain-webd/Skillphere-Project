@@ -4,12 +4,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 export default function RegisterPage() {
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         const formData = new FormData(e.currentTarget);
 
@@ -25,6 +28,8 @@ export default function RegisterPage() {
             image,
         });
 
+        setLoading(false);
+
         if (error) {
             toast.error(error.message || "Registration failed");
             return;
@@ -32,6 +37,20 @@ export default function RegisterPage() {
 
         toast.success("Registration successful. Please login.");
         router.push("/login");
+    };
+
+    const handleGoogleLogin = async () => {
+        const { data, error } = await authClient.signIn.social({
+            provider: "google",
+            callbackURL: "/",
+        });
+
+        if (error) {
+            toast.error(error.message || "Google login failed");
+            return;
+        }
+
+        toast.success("Google login successful");
     };
 
     return (
@@ -50,7 +69,6 @@ export default function RegisterPage() {
                 </div>
 
                 <form onSubmit={onSubmit} className="space-y-5">
-                    {/* Name */}
                     <div>
                         <label className="label">
                             <span className="label-text font-medium text-slate-700">
@@ -67,7 +85,6 @@ export default function RegisterPage() {
                         />
                     </div>
 
-                    {/* Email */}
                     <div>
                         <label className="label">
                             <span className="label-text font-medium text-slate-700">
@@ -84,7 +101,6 @@ export default function RegisterPage() {
                         />
                     </div>
 
-                    {/* Photo URL */}
                     <div>
                         <label className="label">
                             <span className="label-text font-medium text-slate-700">
@@ -100,7 +116,6 @@ export default function RegisterPage() {
                         />
                     </div>
 
-                    {/* Password */}
                     <div>
                         <label className="label">
                             <span className="label-text font-medium text-slate-700">
@@ -119,21 +134,17 @@ export default function RegisterPage() {
 
                     <button
                         type="submit"
+                        disabled={loading}
                         className="btn w-full border-none bg-orange-500 text-white hover:bg-orange-600"
                     >
-                        Register
+                        {loading ? "Registering..." : "Register"}
                     </button>
                 </form>
 
                 <div className="divider text-slate-400">OR</div>
 
                 <button
-                    onClick={() =>
-                        authClient.signIn.social({
-                            provider: "google",
-                            callbackURL: "/",
-                        })
-                    }
+                    onClick={handleGoogleLogin}
                     className="btn w-full bg-white border border-slate-300 text-slate-700 hover:border-orange-400 hover:bg-orange-50"
                 >
                     Continue with Google
