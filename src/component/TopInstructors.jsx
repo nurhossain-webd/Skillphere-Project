@@ -41,7 +41,7 @@ const TopInstructors = () => {
     return (
         <section className="bg-orange-50 py-16">
             <div className="max-w-7xl mx-auto px-5">
-                {/* Section Heading */}
+
                 <div className="text-center mb-10">
                     <p className="text-orange-500 font-semibold">Top Instructors</p>
 
@@ -55,7 +55,7 @@ const TopInstructors = () => {
                     </p>
                 </div>
 
-                {/* Instructor Cards */}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {instructors.map((instructor) => (
                         <div

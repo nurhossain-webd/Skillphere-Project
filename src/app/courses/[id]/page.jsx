@@ -103,7 +103,7 @@ export default function CourseDetailsPage() {
                 </Link>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Course Image */}
+
                     <div className="relative h-80 w-full overflow-hidden rounded-3xl bg-orange-100 shadow-lg">
                         <Image
                             src={course.image}
@@ -115,7 +115,7 @@ export default function CourseDetailsPage() {
                         />
                     </div>
 
-                    {/* Course Info */}
+
                     <div className="rounded-3xl bg-white p-8 shadow-lg border border-orange-100">
                         <div className="flex flex-wrap gap-3 mb-5">
                             <span className="badge bg-orange-100 text-orange-600 border-none">
@@ -183,7 +183,7 @@ export default function CourseDetailsPage() {
                     </div>
                 </div>
 
-                {/* Curriculum */}
+
                 <div className="mt-10 rounded-3xl bg-white p-8 shadow-lg border border-orange-100">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500 text-white">
