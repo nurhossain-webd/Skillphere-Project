@@ -4,7 +4,7 @@ import React from "react";
 import { FaFire, FaStar } from "react-icons/fa";
 
 const TrendingCourses = async () => {
-    const res = await fetch("http://localhost:3000/courses.json", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/courses.json`, {
         cache: "no-store",
     });
 
