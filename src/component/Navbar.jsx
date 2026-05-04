@@ -1,10 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import NavLink from "./NavLink";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-    const user = false;
+    const { data: session, isPending } = authClient.useSession();
+    const userInfo = session?.user;
 
     const navLinks = (
         <>
@@ -19,6 +24,11 @@ const Navbar = () => {
             </li>
         </>
     );
+
+    const handleLogout = async () => {
+        await authClient.signOut();
+        toast.success("Logout successful");
+    };
 
     return (
         <div className="sticky top-0 z-50 border-b border-orange-100 bg-white shadow-sm">
@@ -50,7 +60,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <Link href="/" className="flex items-center ">
+                    <Link href="/" className="flex items-center">
                         <Image
                             src="/images/skillsphere-logo.png"
                             alt="SkillSphere Logo"
@@ -71,13 +81,28 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end gap-3">
-                    {user ? (
+                    {isPending ? (
+                        <span className="loading loading-spinner loading-sm text-orange-500"></span>
+                    ) : userInfo ? (
                         <>
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 font-bold text-white">
-                                U
+                            <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-orange-500 font-bold text-white">
+                                {userInfo.image ? (
+                                    <Image
+                                        src={userInfo.image}
+                                        alt={userInfo.name || "User"}
+                                        width={40}
+                                        height={40}
+                                        className="h-full w-full object-cover"
+                                    />
+                                ) : (
+                                    userInfo.name?.charAt(0)?.toUpperCase() || "U"
+                                )}
                             </div>
 
-                            <button className="btn border-none bg-orange-500 text-white hover:bg-orange-600">
+                            <button
+                                onClick={handleLogout}
+                                className="btn border-none bg-orange-500 text-white hover:bg-orange-600"
+                            >
                                 Logout
                             </button>
                         </>
