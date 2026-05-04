@@ -1,24 +1,48 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaFire, FaStar } from "react-icons/fa";
 
-const TrendingCourses = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/courses.json`, {
-        cache: "no-store",
-    });
+const TrendingCourses = () => {
+    const [trendingCourses, setTrendingCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const courses = await res.json();
+    useEffect(() => {
+        const loadCourses = async () => {
+            try {
+                const res = await fetch("/courses.json");
+                const courses = await res.json();
 
-    // Trending means selected from high rating + different categories
-    const trendingCourses = [...courses]
-        .sort((a, b) => b.rating - a.rating)
-        .slice(0, 4);
+                const trending = [...courses]
+                    .sort((a, b) => b.rating - a.rating)
+                    .slice(0, 4);
+
+                setTrendingCourses(trending);
+            } catch (error) {
+                console.error("Failed to load trending courses:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadCourses();
+    }, []);
+
+    if (loading) {
+        return (
+            <section className="bg-white py-16">
+                <div className="flex justify-center">
+                    <span className="loading loading-spinner loading-lg text-orange-500"></span>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className="bg-white py-16">
             <div className="max-w-7xl mx-auto px-5">
-                {/* Section Heading */}
                 <div className="text-center mb-10">
                     <p className="text-orange-500 font-semibold flex items-center justify-center gap-2">
                         <FaFire />
@@ -35,7 +59,6 @@ const TrendingCourses = async () => {
                     </p>
                 </div>
 
-                {/* Trending Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {trendingCourses.map((course) => (
                         <div
