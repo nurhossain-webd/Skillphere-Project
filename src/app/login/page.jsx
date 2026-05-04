@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
+import { Suspense } from "react";
 
-export default function LoginPage() {
+function LoginContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
 
@@ -32,7 +33,6 @@ export default function LoginPage() {
         const redirectTo = searchParams.get("redirectTo") || "/";
         router.push(redirectTo);
     };
-
 
     const handleGoogleLogin = async () => {
         const { data, error } = await authClient.signIn.social({
@@ -64,7 +64,6 @@ export default function LoginPage() {
                 </div>
 
                 <form onSubmit={onSubmit} className="space-y-5">
-                    {/* Email */}
                     <div>
                         <label className="label">
                             <span className="label-text font-medium text-slate-700">
@@ -81,7 +80,6 @@ export default function LoginPage() {
                         />
                     </div>
 
-                    {/* Password */}
                     <div>
                         <label className="label">
                             <span className="label-text font-medium text-slate-700">
@@ -126,5 +124,19 @@ export default function LoginPage() {
                 </p>
             </div>
         </section>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense
+            fallback={
+                <section className="min-h-screen flex items-center justify-center bg-orange-50">
+                    <span className="loading loading-spinner loading-lg text-orange-500"></span>
+                </section>
+            }
+        >
+            <LoginContent />
+        </Suspense>
     );
 }
